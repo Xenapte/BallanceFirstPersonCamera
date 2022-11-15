@@ -30,8 +30,10 @@ void FirstPersonCamera::OnProcess() {
 	VxVector camera_pos, ball_pos;
 	fp_cam->GetPosition(&camera_pos);
 	player_ball->GetPosition(&ball_pos);
-	fp_cam->SetPosition(Interpolate(adjust_speed * m_bml->GetTimeManager()->GetLastDeltaTime(), camera_pos, ball_pos));
-	fp_cam->LookAt(ball_pos);
+	if (SquareMagnitude(camera_pos - ball_pos) > 0.04f) {
+		fp_cam->SetPosition(Interpolate(adjust_speed * m_bml->GetTimeManager()->GetLastDeltaTime(), camera_pos, ball_pos));
+		fp_cam->LookAt(ball_pos);
+	}
 
 	if (m_bml->GetInputManager()->IsKeyDown(CKKEY_LSHIFT)) {
 		CKCamera* cam = m_bml->GetTargetCameraByName("InGameCam");

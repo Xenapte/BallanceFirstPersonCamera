@@ -11,7 +11,7 @@ public:
 	FirstPersonCamera(IBML* bml) : IMod(bml) {}
 
 	virtual CKSTRING GetID() override { return "FirstPersonCamera"; }
-	virtual CKSTRING GetVersion() override { return "0.0.1"; }
+	virtual CKSTRING GetVersion() override { return "0.0.2"; }
 	virtual CKSTRING GetName() override { return "First Person Camera"; }
 	virtual CKSTRING GetAuthor() override { return "BallanceBug"; }
 	virtual CKSTRING GetDescription() override { return "Let you see the what your ball actually sees."; }
